@@ -3,7 +3,7 @@
 This app saves the beautiful Windows 10 spotlight wallpapers (seen on lockscreen) to your pictures folders. These images are switched out every few days so you can run this program every so often to get the new content.
 
 ## Download
-Grab the latest release [here](https://github.com/depthbomb/SpotlightSaver/releases/download/1.0.0.0/Release.zip), extract it, run it.
+Grab the latest Release.zip [here](https://github.com/depthbomb/SpotlightSaver/releases/latest), extract it, run it.
 
 ## Caveats
 * If you've somehow disabled `Microsoft.Windows.ContentDeliveryManager` then you will probably not get any new images and thus this app will not work very well
