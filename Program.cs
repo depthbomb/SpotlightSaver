@@ -14,6 +14,8 @@ namespace SpotlightSaver
 {
     class Program
     {
+        static bool SilentMode = false;
+
         static string InPath = Paths.ImagePath;
         static string OutPath = Paths.OutputPath;
 
@@ -29,22 +31,34 @@ namespace SpotlightSaver
 #else
             verbose = args.Any(a => a.Contains("-v") || a.Contains("--verbose"));
 #endif
+
+            SilentMode = args.Any(a => a.Contains("--silent"));
+
             Logger = CreateLogger(verbose);
 
-            Intro();
-
-            Work();
-
-            if (WallpapersSaved.Count > 0)
+            if (SilentMode)
             {
-                Logger.Information("Saved {Num} wallpaper(s)!", WallpapersSaved.Count);
+                Work();
+
+                Environment.Exit(0);
             }
             else
             {
-                Logger.Information("No new wallpapers were saved, try again in a few days!");
-            }
+                Intro();
 
-            ExitState();
+                Work();
+
+                if (WallpapersSaved.Count > 0)
+                {
+                    Logger.Information("Saved {Num} wallpaper(s)!", WallpapersSaved.Count);
+                }
+                else
+                {
+                    Logger.Information("No new wallpapers were saved, try again in a few days!");
+                }
+
+                ExitState();
+            }
         }
 
         /// <summary>
