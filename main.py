@@ -2,8 +2,10 @@ import platform
 from sys import exit
 from PIL import Image
 from shutil import copyfile
-from os import path, mkdir, listdir
-from constants import SEARCH_PATH, OUTPUT_PATH
+from os import path, mkdir, getenv, listdir, environ
+
+SEARCH_PATH: str = path.join(getenv("LOCALAPPDATA"), "Packages", "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy", "LocalState", "Assets")
+OUTPUT_PATH: str = path.join(environ["USERPROFILE"], "Pictures", "Windows 10 Spotlight")
 
 
 def on_valid_os() -> bool:
