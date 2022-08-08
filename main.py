@@ -19,8 +19,20 @@ if not on_valid_os():
     exit(1)
 
 
-def run() -> None:
-    """Searches for Windows 10 Spotlight images and saves them to the local Pictures folder."""
+def get_wallpaper_paths() -> list[str]:
+    """Returns a list of paths to valid wallpaper-like files."""
+    wallpaper_paths: list[str] = []
+    for file in listdir(SEARCH_PATH):
+        filepath:   str = path.join(SEARCH_PATH, file)
+        img:      Image = Image.open(filepath)
+        width:      int = img.size[0]
+        if width == 1920:
+            wallpaper_paths.append(filepath)
+
+    return wallpaper_paths
+
+
+def main() -> None:
     mkdir(OUTPUT_PATH) if not path.exists(OUTPUT_PATH) else None
 
     for wallpaper in get_wallpaper_paths():
@@ -35,18 +47,5 @@ def run() -> None:
     exit(0)
 
 
-def get_wallpaper_paths() -> list[str]:
-    """Returns a list of paths to valid wallpaper-like files."""
-    wallpaper_paths: list[str] = []
-    for file in listdir(SEARCH_PATH):
-        filepath:   str = path.join(SEARCH_PATH, file)
-        img:      Image = Image.open(filepath)
-        width:      int = img.size[0]
-        if width == 1920:
-            wallpaper_paths.append(filepath)
-
-    return wallpaper_paths
-
-
 if __name__ == "__main__":
-    run()
+    main()
