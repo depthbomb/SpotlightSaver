@@ -10,7 +10,6 @@ OUTPUT_PATH = Path(environ["USERPROFILE"], "Pictures", "Windows 10 Spotlight")
 
 
 def on_valid_os() -> bool:
-    """Checks if the OS the script is running on is at least Windows 10 Anniversary (10.0.1607)."""
     version = int(platform.version().split(".")[2])
     return platform.system() == "Windows" and platform.release() == "10" and version >= 1607
 
@@ -21,7 +20,6 @@ if not on_valid_os():
 
 
 def get_wallpaper_paths() -> list[Path]:
-    """Returns a list of paths to valid wallpaper-like files."""
     wallpaper_paths: list[Path] = []
     for file in SEARCH_PATH.iterdir():
         filepath = SEARCH_PATH.joinpath(str(file))
