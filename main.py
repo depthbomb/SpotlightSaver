@@ -38,7 +38,7 @@ def main() -> None:
 
     for wallpaper in get_wallpaper_paths():
         wallpaper_filename = wallpaper.name
-        output_filepath = OUTPUT_PATH.joinpath(f"{wallpaper_filename}.png")
+        output_filepath = OUTPUT_PATH.joinpath(f"{wallpaper_filename}.jpg")
         if not output_filepath.exists():
             copyfile(wallpaper, output_filepath)
             print("Copied file %s to %s" % (wallpaper, output_filepath))

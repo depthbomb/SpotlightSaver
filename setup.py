@@ -10,7 +10,7 @@ options = dict(
 )
 
 setup(
-    version="2.0.0",
+    version="2.1.0",
     description="Saves the pretty Windows 10 lockscreen wallpapers to your pictures folder",
     author="Caprine Logic",
     console=[{
