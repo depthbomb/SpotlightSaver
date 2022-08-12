@@ -1,16 +1,17 @@
 import platform
 from sys import exit
 from PIL import Image
+from pathlib import Path
 from shutil import copyfile
-from os import path, mkdir, getenv, listdir, environ
+from os import getenv, environ
 
-SEARCH_PATH: str = path.join(getenv("LOCALAPPDATA"), "Packages", "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy", "LocalState", "Assets")
-OUTPUT_PATH: str = path.join(environ["USERPROFILE"], "Pictures", "Windows 10 Spotlight")
+SEARCH_PATH = Path(getenv("LOCALAPPDATA"), "Packages", "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy", "LocalState", "Assets")
+OUTPUT_PATH = Path(environ["USERPROFILE"], "Pictures", "Windows 10 Spotlight")
 
 
 def on_valid_os() -> bool:
     """Checks if the OS the script is running on is at least Windows 10 Anniversary (10.0.1607)."""
-    version: int = int(platform.version().split(".")[2])
+    version = int(platform.version().split(".")[2])
     return platform.system() == "Windows" and platform.release() == "10" and version >= 1607
 
 
@@ -19,26 +20,26 @@ if not on_valid_os():
     exit(1)
 
 
-def get_wallpaper_paths() -> list[str]:
+def get_wallpaper_paths() -> list[Path]:
     """Returns a list of paths to valid wallpaper-like files."""
-    wallpaper_paths: list[str] = []
-    for file in listdir(SEARCH_PATH):
-        filepath:   str = path.join(SEARCH_PATH, file)
-        img:      Image = Image.open(filepath)
-        width:      int = img.size[0]
-        if width == 1920:
-            wallpaper_paths.append(filepath)
+    wallpaper_paths: list[Path] = []
+    for file in SEARCH_PATH.iterdir():
+        filepath = SEARCH_PATH.joinpath(str(file))
+        with Image.open(filepath) as img:
+            width = img.size[0]
+            if width == 1920:
+                wallpaper_paths.append(filepath)
 
     return wallpaper_paths
 
 
 def main() -> None:
-    mkdir(OUTPUT_PATH) if not path.exists(OUTPUT_PATH) else None
+    OUTPUT_PATH.mkdir() if not OUTPUT_PATH.exists() else None
 
     for wallpaper in get_wallpaper_paths():
-        wallpaper_filename: str = path.basename(wallpaper)
-        output_filepath:    str = path.join(OUTPUT_PATH, f"{wallpaper_filename}.png")
-        if not path.exists(output_filepath):
+        wallpaper_filename = wallpaper.name
+        output_filepath = OUTPUT_PATH.joinpath(f"{wallpaper_filename}.png")
+        if not output_filepath.exists():
             copyfile(wallpaper, output_filepath)
             print("Copied file %s to %s" % (wallpaper, output_filepath))
         else:
