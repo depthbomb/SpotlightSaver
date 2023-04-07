@@ -13,4 +13,4 @@ Simply check the **Run on startup** option when installing and SpotlightSaver wi
 ## Caveats
 
 * If you've somehow disabled `Microsoft.Windows.ContentDeliveryManager` then you will probably not get any new images and thus this app will not work very well
-* This only works on Windows 10 (post-Anniversary update, 10.0.1607)
+* This only works on versions of Windows 10 on or after the Anniversary Update (aka version 1607, Redstone 1, 10.0.14393)
