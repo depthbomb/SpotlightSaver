@@ -1,6 +1,6 @@
 #define MyAppName "SpotlightSaver"
 #define MyAppDescription "Saves the pretty Windows 10 lockscreen wallpapers to your pictures folder"
-#define MyAppVersion "3.0.0.0"
+#define MyAppVersion "4.0.0.0"
 #define MyAppPublisher "Caprine Logic"
 #define MyAppExeName "spotlightsaver.exe"
 #define MyAppCopyright "Copyright (C) 2022 Caprine Logic"
@@ -18,9 +18,9 @@ DisableDirPage=yes
 DisableProgramGroupPage=yes
 PrivilegesRequired=admin
 AllowNoIcons=yes
-OutputDir=.\build
+OutputDir=.\dist
 OutputBaseFilename=spotlightsaver_setup
-SetupIconFile=.\Icon.ico
+SetupIconFile=.\icon.ico
 Compression=lzma2/ultra64
 SolidCompression=yes
 WizardStyle=modern
@@ -56,7 +56,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: startup; Description: "Run on Startup"
 
 [Files]
-Source: ".\SpotlightSaver\bin\Release\net7.0\win-x64\publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: ".\dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
