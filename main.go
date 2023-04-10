@@ -22,7 +22,7 @@ func main() {
 
 	err := processFiles(images, outputDirectory)
 	if err != nil {
-		log.Fatalf("Error while processing images: %s", err)
+		log.Fatalf("Error while processing images: %v", err)
 	}
 
 }
@@ -36,7 +36,7 @@ func onCompatibleWindowsVersion() bool {
 func getImagesDirectory() string {
 	appdata, err := os.UserCacheDir()
 	if err != nil {
-		log.Fatalf("Unable to retrieve AppData path: %s", err)
+		log.Fatalf("Unable to retrieve AppData path: %v", err)
 	}
 
 	return filepath.Join(appdata, "Packages", "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy", "LocalState", "Assets")
@@ -45,7 +45,7 @@ func getImagesDirectory() string {
 func getAndCreateOutputDirectory() string {
 	u, err := user.Current()
 	if err != nil {
-		log.Fatalf("Unable to get current user: %s", err)
+		log.Fatalf("Unable to get current user: %v", err)
 	}
 
 	outputPath := filepath.Join(u.HomeDir, "Pictures", "Windows Spotlight")
@@ -53,7 +53,7 @@ func getAndCreateOutputDirectory() string {
 	if !pathExists(outputPath) {
 		err = os.Mkdir(outputPath, 0666)
 		if err != nil {
-			log.Fatalf("Unable to create output directory: %s", err)
+			log.Fatalf("Unable to create output directory: %v", err)
 		}
 	}
 
@@ -74,7 +74,7 @@ func getImageFiles(path string) []string {
 	})
 
 	if err != nil {
-		log.Fatalf("Error while iterating image directory: %s", err)
+		log.Fatalf("Error while iterating image directory: %v", err)
 	}
 
 	return images
@@ -133,7 +133,7 @@ func pathExists(path string) bool {
 		if os.IsNotExist(err) {
 			return false
 		} else {
-			log.Fatalf("Error checking for path existence: %s", err)
+			log.Fatalf("Error checking for path existence: %v", err)
 
 			return false
 		}
