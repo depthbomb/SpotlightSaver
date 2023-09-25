@@ -13,7 +13,3 @@ Spotlight Saver can either be downloaded as a standalone binary or installed via
 As a standalone binary, it can be added to your system's PATH and executed from anywhere.
 
 Installing through the installer allows you to run Spotlight Saver automatically when you log in.
-
-## Download
-
-Download and run the latest installer from [here](https://github.com/depthbomb/SpotlightSaver/releases/latest).
