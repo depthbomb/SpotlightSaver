@@ -1,6 +1,6 @@
 #define MyAppName "SpotlightSaver"
 #define MyAppDescription "Saves the pretty Windows 10 lockscreen wallpapers to your pictures folder"
-#define MyAppVersion "4.0.0.1"
+#define MyAppVersion "5.0.0"
 #define MyAppPublisher "Caprine Logic"
 #define MyAppExeName "spotlightsaver.exe"
 #define MyAppCopyright "Copyright (C) 2022 Caprine Logic"

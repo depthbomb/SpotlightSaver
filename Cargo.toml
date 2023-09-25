@@ -1,0 +1,9 @@
+[package]
+name = "spotlightsaver"
+version = "5.0.0"
+edition = "2021"
+
+[dependencies]
+guid = "0.1.0"
+image = "0.24.7"
+winfolder = "0.1.1"

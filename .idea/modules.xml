@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/spotlight-saver.iml" filepath="$PROJECT_DIR$/.idea/spotlight-saver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spotlight_saver.iml" filepath="$PROJECT_DIR$/.idea/spotlight_saver.iml" />
     </modules>
   </component>
 </project>
