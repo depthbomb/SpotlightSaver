@@ -6,6 +6,8 @@ This app saves the beautiful Windows 10 spotlight wallpapers, seen on the locksc
 
 Requires _Windows 10 Anniversary Update_ (`1607`, `Redstone 1`, `10.0.14393`) or later. **Microsoft.Windows.ContentDeliveryManager** (enabled by default) should also not be disabled or else you won't receive new images periodically.
 
+Windows 11 _may_ work but I cannot test it myself at the moment.
+
 ## Usage
 
 Spotlight Saver can either be downloaded as a standalone binary or installed via an installer, both of which are provided in the [latest release.](https://github.com/depthbomb/SpotlightSaver/releases/latest)
