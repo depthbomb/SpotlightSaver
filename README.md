@@ -1,5 +1,5 @@
 > [!WARNING]
-> SpotlightSaver is now deprecated and won't receive any more updates. Its functionality is now included in [WinUtils](https://github.com/depthbomb/SpotlightSaver).
+> SpotlightSaver is now deprecated and won't receive any more updates. Its functionality is now included in [WinUtils](https://github.com/depthbomb/winutils).
 
 # Spotlight Saver
 
