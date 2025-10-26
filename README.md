@@ -1,3 +1,6 @@
+> [!WARNING]
+> SpotlightSaver is now deprecated and won't receive any more updates. Its functionality is now included in [WinUtils](https://github.com/depthbomb/SpotlightSaver).
+
 # Spotlight Saver
 
 This app saves the beautiful Windows 10 spotlight wallpapers, seen on the lockscreen, to a folder located at `Pictures\Windows Spotlight`.
