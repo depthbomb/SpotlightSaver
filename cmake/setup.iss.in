@@ -1,9 +1,9 @@
-#define MyAppName "SpotlightSaver"
-#define MyAppDescription "Windows Spotlight Saver"
-#define MyAppVersion "6.0.0"
-#define MyAppPublisher "Caprine Logic"
-#define MyAppExeName "SpotlightSaver.exe"
-#define MyAppCopyright "(c) 2022-2025 Caprine Logic"
+#define MyAppName "@PROJECT_NAME@"
+#define MyAppDescription "@PROJECT_DESCRIPTION@"
+#define MyAppVersion "@PROJECT_VERSION@"
+#define MyAppPublisher "@COMPANY_NAME@"
+#define MyAppExeName "@PROJECT_NAME@.exe"
+#define MyAppCopyright "@PROJECT_COPYRIGHT@"
 
 [Setup]
 AppId={{D73EBD89-4171-4B7F-8911-7E3B65CDCBEA}
@@ -20,7 +20,7 @@ PrivilegesRequired=lowest
 AllowNoIcons=yes
 LicenseFile=.\LICENSE
 OutputDir=.\bin
-OutputBaseFilename=SpotlightSaverSetup
+OutputBaseFilename=@PROJECT_NAME@Setup
 SetupIconFile=.\resources\icon.ico
 Compression=lzma2/ultra64
 SolidCompression=yes

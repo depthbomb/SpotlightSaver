@@ -1,2 +1,7 @@
-/dist
-/target
+.idea/
+bin/
+cmake-build-*/
+
+# Generated files
+spotlight_saver.rc
+setup.iss
