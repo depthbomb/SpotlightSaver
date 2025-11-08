@@ -1,5 +1,4 @@
 #define WIN32_LEAN_AND_MEAN
-#define NOMINMAX
 #define NOCOMM
 
 #include <string>
