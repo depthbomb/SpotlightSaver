@@ -29,14 +29,14 @@ WizardResizable=no
 ArchitecturesAllowed=x64compatible
 ShowTasksTreeLines=True
 AlwaysShowDirOnReadyPage=True
-UninstallDisplayIcon={app}\{#ExeName}
-UninstallDisplayName={#NameLong}
-VersionInfoCompany={#Company}
-VersionInfoCopyright={#Copyright}
-VersionInfoProductName={#NameLong}
-VersionInfoProductVersion={#Version}
-VersionInfoProductTextVersion={#Version}
-VersionInfoDescription={#Description}
+UninstallDisplayIcon={app}\{#MyAppExeName}
+UninstallDisplayName={#MyAppName}
+VersionInfoCompany={#MyAppPublisher}
+VersionInfoCopyright={#MyAppCopyright}
+VersionInfoProductName={#MyAppName}
+VersionInfoProductVersion={#MyAppVersion}
+VersionInfoProductTextVersion={#MyAppVersion}
+VersionInfoDescription={#MyAppDescription}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
