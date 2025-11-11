@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 4.0)
 
-project(SpotlightSaver VERSION 6.0.0 DESCRIPTION "Windows Spotlight Saver" LANGUAGES CXX)
+project(SpotlightSaver VERSION 6.0.1 DESCRIPTION "Windows Spotlight Saver" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 26)
 

@@ -120,10 +120,10 @@ int main() {
         } catch (std::filesystem::filesystem_error& e) {
             std::cerr << e.what() << std::endl;
         }
+    }
 
-        if (saved_count > 0) {
-            std::cout << "Saved " << saved_count << " image(s)" << std::endl;
-        }
+    if (saved_count > 0) {
+        std::cout << "Saved " << saved_count << " image(s)" << std::endl;
     }
 
     return 0;
