@@ -2,6 +2,7 @@
 #define NOCOMM
 
 #include "jpeg_dimensions.h"
+#include "spotlight_image.h"
 
 #include <iostream>
 #include <filesystem>
@@ -55,7 +56,7 @@ int main() {
             continue;
         }
 
-        if (auto [width, height] = get_image_resolution(entry.path()); width != 1920 && height != 1080) {
+        if (!is_spotlight_image_resolution(get_image_resolution(entry.path()))) {
             continue;
         }
 
