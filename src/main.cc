@@ -4,6 +4,7 @@
 #include "jpeg_dimensions.h"
 #include "spotlight_image.h"
 
+#include <cstdlib>
 #include <iostream>
 #include <filesystem>
 #include <stdexcept>
@@ -37,18 +38,19 @@ fs::path get_destination_dir() {
     throw std::runtime_error("Failed to get Pictures path");
 }
 
-int main() {
+int run() {
     const auto assets_dir = get_spotlight_assets_dir();
-    if (!fs::exists(assets_dir)) {
+    if (!fs::is_directory(assets_dir)) {
         std::cerr << "Could not find assets path: " << assets_dir << std::endl;
-        return 1;
+
+        return EXIT_FAILURE;
     }
 
     const auto destination_dir = get_destination_dir();
-    if (!fs::exists(destination_dir)) {
-        fs::create_directories(destination_dir);
-    }
 
+    fs::create_directories(destination_dir);
+
+    bool copy_failed = false;
     int saved_count = 0;
 
     for (const auto& entry : fs::directory_iterator(assets_dir)) {
@@ -67,11 +69,12 @@ int main() {
         }
 
         try {
-            fs::copy(entry.path(), destination_path);
+            fs::copy_file(entry.path(), destination_path);
             std::cout << "Copied " << entry.path() << " to " << destination_path << std::endl;
             saved_count++;
-        } catch (std::filesystem::filesystem_error& e) {
-            std::cerr << e.what() << std::endl;
+        } catch (const fs::filesystem_error& error) {
+            std::cerr << error.what() << std::endl;
+            copy_failed = true;
         }
     }
 
@@ -79,5 +82,15 @@ int main() {
         std::cout << "Saved " << saved_count << " image(s)" << std::endl;
     }
 
-    return 0;
+    return copy_failed ? EXIT_FAILURE : EXIT_SUCCESS;
+}
+
+int main() {
+    try {
+        return run();
+    } catch (const std::exception& error) {
+        std::cerr << error.what() << std::endl;
+
+        return EXIT_FAILURE;
+    }
 }
