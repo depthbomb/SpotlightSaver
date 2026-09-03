@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 4.0)
 
-project(SpotlightSaver VERSION 6.0.1 DESCRIPTION "Windows Spotlight Saver" LANGUAGES CXX)
+project(SpotlightSaver VERSION 6.0.2 DESCRIPTION "Windows Spotlight Saver" LANGUAGES CXX)
 
 include(CTest)
 
 set(CMAKE_CXX_STANDARD 26)
 
 set(COMPANY_NAME "Caprine Logic")
-set(PROJECT_COPYRIGHT "(c) 2022-2025 ${COMPANY_NAME}")
+set(PROJECT_COPYRIGHT "(c) 2022-2026 ${COMPANY_NAME}")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR}/bin/Debug)
