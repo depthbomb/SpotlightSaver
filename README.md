@@ -1,12 +1,10 @@
 # Spotlight Saver
 
-This app saves the beautiful Windows 10 spotlight wallpapers, seen on the lockscreen, to a folder located at `Pictures\Windows Spotlight`.
+This app saves the beautiful Windows 10/11 spotlight wallpapers, seen on the lockscreen, to a folder located at `Pictures\Windows Spotlight`.
 
 ## Requirements
 
-Requires _Windows 10 Anniversary Update_ (`1607`, `Redstone 1`, `10.0.14393`) or later. **Microsoft.Windows.ContentDeliveryManager** (enabled by default) should also not be disabled or else you won't receive new images periodically.
-
-Windows 11 _may_ work, but I cannot test it myself at the moment.
+Requires at least _Windows 10 Anniversary Update_ (`1607`, `Redstone 1`, `10.0.14393`) or later. **Microsoft.Windows.ContentDeliveryManager** (enabled by default) should also not be disabled or else you won't receive new images periodically.
 
 ## Usage
 
