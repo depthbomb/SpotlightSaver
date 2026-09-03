@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 4.0)
 
 project(SpotlightSaver VERSION 6.0.1 DESCRIPTION "Windows Spotlight Saver" LANGUAGES CXX)
 
+include(CTest)
+
 set(CMAKE_CXX_STANDARD 26)
 
 set(COMPANY_NAME "Caprine Logic")
@@ -39,4 +41,11 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 if (MSVC)
     set_property(TARGET ${PROJECT_NAME} PROPERTY
             MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif ()
+
+if (BUILD_TESTING)
+    add_executable(${PROJECT_NAME}Tests tests/jpeg_dimensions_tests.cc src/jpeg_dimensions.cc)
+    target_include_directories(${PROJECT_NAME}Tests PRIVATE ${CMAKE_SOURCE_DIR}/src)
+
+    add_test(NAME ${PROJECT_NAME}Tests COMMAND ${PROJECT_NAME}Tests)
 endif ()
