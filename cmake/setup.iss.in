@@ -45,7 +45,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: startup; Description: "Run on Startup"
 
 [Files]
-Source: ".\bin\MinSizeRel\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: ".\bin\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 Source: ".\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
