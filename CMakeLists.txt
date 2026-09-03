@@ -31,13 +31,12 @@ add_executable(${PROJECT_NAME} src/main.cc src/jpeg_dimensions.cc ${APP_RC})
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src )
 
-if (CMAKE_BUILD_TYPE MATCHES "MinSizeRel|Release")
-    set_target_properties(${PROJECT_NAME} PROPERTIES
-            INTERPROCEDURAL_OPTIMIZATION TRUE
-    )
+set_target_properties(${PROJECT_NAME} PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION_MINSIZEREL TRUE
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE
+)
 
-    if(MSVC)
-        set_property(TARGET ${PROJECT_NAME} PROPERTY
-                MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-    endif()
+if (MSVC)
+    set_property(TARGET ${PROJECT_NAME} PROPERTY
+            MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif ()
