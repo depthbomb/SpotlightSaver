@@ -13,7 +13,8 @@
 
 namespace fs = std::filesystem;
 
-fs::path get_spotlight_assets_dir() {
+fs::path get_spotlight_assets_dir()
+{
     PWSTR path = nullptr;
     if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_LocalAppData, 0, nullptr, &path))) {
         const fs::path result = path;
@@ -25,7 +26,8 @@ fs::path get_spotlight_assets_dir() {
     throw std::runtime_error("Failed to get LOCALAPPDATA path");
 }
 
-fs::path get_destination_dir() {
+fs::path get_destination_dir()
+{
     PWSTR path = nullptr;
     if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_Pictures, 0, nullptr, &path))) {
         fs::path result = path;
@@ -38,7 +40,8 @@ fs::path get_destination_dir() {
     throw std::runtime_error("Failed to get Pictures path");
 }
 
-int run() {
+int run()
+{
     const auto assets_dir = get_spotlight_assets_dir();
     if (!fs::is_directory(assets_dir)) {
         std::cerr << "Could not find assets path: " << assets_dir << std::endl;
@@ -85,7 +88,8 @@ int run() {
     return copy_failed ? EXIT_FAILURE : EXIT_SUCCESS;
 }
 
-int main() {
+int main()
+{
     try {
         return run();
     } catch (const std::exception& error) {
