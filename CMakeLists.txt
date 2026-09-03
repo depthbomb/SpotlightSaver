@@ -27,7 +27,7 @@ configure_file(
         @ONLY
 )
 
-add_executable(${PROJECT_NAME} src/main.cc ${APP_RC})
+add_executable(${PROJECT_NAME} src/main.cc src/jpeg_dimensions.cc ${APP_RC})
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/src )
 
