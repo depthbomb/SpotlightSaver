@@ -1,9 +1,9 @@
-#define MyAppName "@PROJECT_NAME@"
-#define MyAppDescription "@PROJECT_DESCRIPTION@"
-#define MyAppVersion "@PROJECT_VERSION@"
-#define MyAppPublisher "@COMPANY_NAME@"
-#define MyAppExeName "@PROJECT_NAME@.exe"
-#define MyAppCopyright "@PROJECT_COPYRIGHT@"
+#define MyAppName "SpotlightSaver"
+#define MyAppDescription "Saves the pretty Windows 10 lockscreen wallpapers to your pictures folder"
+#define MyAppVersion "7.0.0"
+#define MyAppPublisher "Caprine Logic"
+#define MyAppExeName "spotlightsaver.exe"
+#define MyAppCopyright "Copyright (C) 2022-2026 Caprine Logic"
 
 [Setup]
 AppId={{D73EBD89-4171-4B7F-8911-7E3B65CDCBEA}
@@ -18,19 +18,18 @@ DisableDirPage=yes
 DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
 AllowNoIcons=yes
-LicenseFile=.\LICENSE
-OutputDir=.\bin
-OutputBaseFilename=@PROJECT_NAME@Setup
-SetupIconFile=.\resources\icon.ico
+OutputDir=.\dist
+OutputBaseFilename=spotlightsaver_setup
+SetupIconFile=.\icon.ico
 Compression=lzma2/ultra64
 SolidCompression=yes
 WizardStyle=modern
-WizardResizable=no
 ArchitecturesAllowed=x64compatible
-ShowTasksTreeLines=True
-AlwaysShowDirOnReadyPage=True
+ArchitecturesInstallIn64BitMode=x64compatible
 UninstallDisplayIcon={app}\{#MyAppExeName}
 UninstallDisplayName={#MyAppName}
+ShowTasksTreeLines=True
+AlwaysShowDirOnReadyPage=True
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoCopyright={#MyAppCopyright}
 VersionInfoProductName={#MyAppName}
@@ -45,7 +44,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: startup; Description: "Run on Startup"
 
 [Files]
-Source: ".\bin\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: ".\target\release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
